@@ -10,7 +10,8 @@ import {ProductsPageComponent} from "./products-page/products-page.component";
 import {NavBarComponent} from "./nav-bar/nav-bar.component";
 import {ProductListingComponent} from "./product-listing/product-listing.component";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
+import {HttpClientModule} from '@angular/common/http';
+import { ProductIntegrationComponent } from './product-integration/product-integration.component'
 
 @NgModule({
   declarations: [
@@ -21,11 +22,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ProductsPageComponent,
     NavBarComponent,
     ProductListingComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductIntegrationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
