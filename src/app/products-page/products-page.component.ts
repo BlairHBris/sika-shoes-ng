@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Product} from "../product.model"
 import { ProductServiceService } from "../product-service.service";
-import { forkJoin } from "rxjs";
 
 
 @Component({
@@ -19,7 +18,7 @@ export class ProductsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.listProducts().subscribe(response => {
-      const observables = response.results.map(product => product.id)
+      this.products = response.products
     })
 
   }

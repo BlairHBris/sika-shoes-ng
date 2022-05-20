@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from './product.model';
 
 type ProductResponse = {
-  results: Product[]
+  products: Product[]
 }
 
 @Injectable({
