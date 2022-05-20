@@ -1,7 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {Product} from "../product.model"
 import { ProductServiceService } from "../product-service.service";
-import {forkJoin } from 'rxjs'
+import {forkJoin, Observable} from 'rxjs'
+import { HttpClient } from "@angular/common/http";
+
 
 @Component({
   selector: "app-products-page",
@@ -10,19 +12,22 @@ import {forkJoin } from 'rxjs'
 })
 export class ProductsPageComponent implements OnInit {
   products: Product[] = []
-  error = false
-  constructor(private productService: ProductServiceService){
-  }
-  ngOnInit(): void {
-    this.productService.listProducts().subscribe(response =>{
-      console.log(response)
-      const observables = response.products.map(product => product.id).map(id => {
-        return this.productService.getProduct(id)
-      })
-      return forkJoin(observables).subscribe(allProducts => {
-        this.products = allProducts
-      })
-  })
-}
-}
 
+  error = false
+
+  private jsonUrl = 'assets/products.json'
+
+  constructor(private http: HttpClient){
+    this.getJSON().subscribe(data => {
+      console.log(data)
+    })
+  }
+
+  public getJSON(): Observable<any> {
+    return this.http.get(this.jsonUrl)
+  }
+
+  ngOnInit(): void {
+
+  }
+}
