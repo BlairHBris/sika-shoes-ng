@@ -7,12 +7,13 @@ import { Product } from './product.model';
 })
 export class ProductServiceService {
 
+
   constructor(private http: HttpClient) { }
   listProducts(){
     return this.http.get('assets/products.json')
   }
 
-  getProduct(){
+  getProduct(id:number){
     return this.http.get('assets/products.json')
   }
 
