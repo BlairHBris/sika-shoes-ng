@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { AboutPageComponent } from "./about-page/about-page.component";
 import { ProductsPageComponent } from "./products-page/products-page.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [{
     path: "",
@@ -13,6 +14,8 @@ const routes: Routes = [{
 }, {
     path: "about",
     component: AboutPageComponent
+},{
+  path: '**', component: PageNotFoundComponent
 }]
 
 @NgModule({
