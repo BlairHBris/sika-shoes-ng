@@ -1,13 +1,14 @@
 <style>
-.product-listing {
-  margin-top: 64px;
-}
+    .product-listing {
+        margin-top: 64px;
+    }
 </style>
 
 <div class="product-listing">
-  <div class="image-container">
-    <img src="assets/{{imageUrl}}" alt="{{name}}" />
-  </div>
-  <h3>{{name}}</h3>
-  <p>{{description}}</p>
+    <div class="image-container">
+        <img src="assets/{{imageUrl}}" alt="{{name}}" />
+    </div>
+    <h3 routerLink="product/:name">{{name}}</h3>
+    <router-outlet></router-outlet>
+    <p>{{description}}</p>
 </div>

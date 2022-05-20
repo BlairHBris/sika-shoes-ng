@@ -1,5 +1,8 @@
 import {Component} from "@angular/core";
 import {Product} from "../product.model"
+import {ProductServiceService} from "../product-service.service"
+import { ActivatedRoute, Router } from "@angular/router";
+
 
 @Component({
   selector: "app-product-page",
@@ -9,7 +12,12 @@ import {Product} from "../product.model"
 export class ProductPageComponent {
   product?: Product;
   error = false;
-  ngOnInit() {
-    // Get product here
+
+  constructor(private route: ActivatedRoute, private router: Router){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false
+  }
+
+  ngOnInit():void {
+  this.product = this.route.snapshot.paramMap.get("name")
   }
 }
