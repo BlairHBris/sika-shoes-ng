@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
-import {Product} from "../product.model"
-import {ProductServiceService} from "../product-service.service"
+import { Component } from "@angular/core";
+import { Product } from "../product.model"
 import { ActivatedRoute, Router } from "@angular/router";
+import { ProductServiceService } from "../product-service.service";
 
 
 @Component({
@@ -11,13 +11,17 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class ProductPageComponent {
   product?: Product;
+  target?: Product[]
   error = false;
 
-  constructor(private route: ActivatedRoute, private router: Router){
+
+  constructor(private router: Router, private productService: ProductServiceService){
     this.router.routeReuseStrategy.shouldReuseRoute = () => false
   }
 
   ngOnInit():void {
-  this.product = this.route.snapshot.paramMap.get("name")
+    this.productService.getProduct(1).subscribe(response => {
+      console.log(response)
+    })
   }
 }

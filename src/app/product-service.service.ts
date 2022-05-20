@@ -17,7 +17,7 @@ export class ProductServiceService {
     return this.http.get<ProductResponse>('assets/products.json')
   }
 
-  getProduct(name:string){
+  getProduct(id:number){
     return this.http.get<Product>('assets/products.json')
   }
 

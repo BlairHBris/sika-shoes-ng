@@ -4,7 +4,7 @@
     <ng-template #productList>
         <ul #productList>
             <li *ngFor="let product of products">
-                <a routerLink="`product/${product.name}`">
+                <a routerLink="{{product.id}}">
                     <app-product-listing id="{{product.id}}" [name]="product.name" [description]="product.description" [imageUrl]="product.imageUrl">
                     </app-product-listing>
                 </a>
