@@ -11,7 +11,6 @@ import {NavBarComponent} from "./nav-bar/nav-bar.component";
 import {ProductListingComponent} from "./product-listing/product-listing.component";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ProductIntegrationComponent } from './product-integration/product-integration.component'
 
 @NgModule({
   declarations: [
@@ -22,8 +21,8 @@ import { ProductIntegrationComponent } from './product-integration/product-integ
     ProductsPageComponent,
     NavBarComponent,
     ProductListingComponent,
-    PageNotFoundComponent,
-    ProductIntegrationComponent
+    PageNotFoundComponent
+  
   ],
   imports: [
     BrowserModule,
